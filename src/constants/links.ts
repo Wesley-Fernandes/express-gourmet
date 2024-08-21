@@ -1,14 +1,14 @@
 export const links = {
     logged: [
         { title: 'Inicio', to: '/' },
-        { title: 'Deliverys', to: '/auth/deliverys' },
-        { title: 'Procurar', to: '/auth/search' },
-        { title: 'Pedidos', to: '/auth/orders' },
-        { title: 'Configurações', to: '/auth/settings' },
+        { title: 'Deliverys', to: '/deliverys' },
+        { title: 'Procurar', to: '/search' },
+        { title: 'Pedidos', to: '/orders' },
+        { title: 'Configurações', to: '/settings' },
     ],
     notLogged: [
         { title: 'Home', to: '/' },
-        { title: 'Deliverys', to: '/auth/deliverys' },
-        { title: 'Procurar', to: '/auth/search' },
+        { title: 'Deliverys', to: '/deliverys' },
+        { title: 'Procurar', to: '/search' },
     ],
 }
