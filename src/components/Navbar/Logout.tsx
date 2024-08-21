@@ -7,7 +7,7 @@ import {
   } from "@/components/ui/avatar"
 export function Logout() {
   return (
-    <div className='flex flex-col gap-2 border p-2 rounded-lg'>
+    <div className='flex flex-col gap-2 border p-2 rounded-lg shadow-sm'>
         <div className='flex items-center gap-2'>
             <Avatar>
                 <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
