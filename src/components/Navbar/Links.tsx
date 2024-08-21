@@ -2,6 +2,7 @@ import { links } from '@/constants/links'
 import React from 'react'
 import Jumper from './Jumper'
 import { Logout } from './Logout'
+import { Login } from './Login'
 
 export function Links() {
   return (
@@ -12,7 +13,7 @@ export function Links() {
               <Jumper key={i.title} to={i.to}>{i.title}</Jumper>
           ))}
       </ul>
-      <Logout/>
+      <Login/>
     </div>
   )
 }
