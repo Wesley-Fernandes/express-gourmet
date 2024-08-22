@@ -1,3 +1,5 @@
+import { DeliveryPartial } from "./delivery";
+
 export type CategoryTypes = "Bebidas"|"Lanches"|"Pizzas"|"Sobremesas"|"Salgados"|"Doces"|"Café"|"Marmita"|"Churrasco";
 
 export type ComplementType = {
@@ -14,6 +16,7 @@ export interface FoodFullInterface{
     price: number;
     description: string;
     complements?: ComplementType[];
+    delivery: DeliveryPartial
 };
 
 

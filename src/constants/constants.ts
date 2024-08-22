@@ -16,31 +16,19 @@ const delivery:DeliveryInterface = {
 
 const deliverys:DeliverysInterface[] = [
     {
-        delivery: {
-            id: "6a579492-b6c4-4771-b931-53c10819cad4",
-            icon: "https://shrbspelotas.com.br/cache/e/1/0/a/b/e10abceb4738326f3337b7b4adf0359f7f8a6be8.png",
-            name: "Lobão churrascaria",
-        },
-        id: "6ccd5e42-0a09-4025-898f-a7629eca3ee8",
-        thumbnail: "https://www.juliatto.com.br/wp-content/uploads/2022/02/linguica-de-porco-tipos-de-preparos.jpg",
+        id: "bac271a0-8fc2-4dcc-9cfe-b3e7db2b5075",
+        thumbnail: "https://minervafoods.com/wp-content/uploads/2022/12/costela_bovina-1.jpg",
         name: "Costelas de bovino",
         category: "Churrasco",
         price: 20.0
     },
     {
-        delivery: {
-            icon: "https://shrbspelotas.com.br/cache/e/1/0/a/b/e10abceb4738326f3337b7b4adf0359f7f8a6be8.png",
-            name: "Lobão churrascaria",
-            id: "6a579492-b6c4-4771-b931-53c10819cad4",
-        },
         thumbnail: "https://www.juliatto.com.br/wp-content/uploads/2022/02/linguica-de-porco-tipos-de-preparos.jpg",
         name: "Salchichão de porco",
         category: "Churrasco",
         price: 10.0,
-        id: ""
-       
+        id: "6ccd5e42-0a09-4025-898f-a7629eca3ee8"
     }
-
 ]
 
 

@@ -12,16 +12,16 @@ export interface DeliveryInterface{
     foods: FoodInterface[];
 }
 
-interface DeliveryPartial{
+export interface DeliveryPartial{
     id: string;
-    name: string;
     icon: string;
+    name: string;
 }
+
 export interface DeliverysInterface{
     thumbnail: string,
     name: string,
     category: CategoryTypes,
     price: number
-    delivery: DeliveryPartial;
     id: string;
 }
