@@ -6,11 +6,13 @@ import { Input } from '@/components/ui/input'
 import { LoaderCircle, Search } from 'lucide-react'
 import { FoodInterface } from '@/types/food'
 import { FormEvent, useState } from 'react'
+import { collection, getDocs, query, where } from 'firebase/firestore'
+import { db } from '@/services/firebase'
 
 export default function FoodSearch() {
-  const [query, setQuery] = useState<FoodInterface[]>([]);
+  const [querys, setQuery] = useState<FoodInterface[]>([]);
   const [loading, setLoading] = useState(false);
-  const findData = (e:FormEvent) => {
+  const findData = async (e:FormEvent) => {
     setLoading(true);
     e.preventDefault();
 
@@ -18,7 +20,6 @@ export default function FoodSearch() {
     const target = e.target as typeof e.target & {
       name: {value: string},
     }
-
     const name = target.name.value.toLowerCase();
 
     if(!name){
@@ -26,12 +27,18 @@ export default function FoodSearch() {
       setLoading(false);
       return;
     }
-    const filteredData = CONSTANTS.foods.filter((food) => food.name.toLowerCase().trim().includes(name));
-    setTimeout(()=>{
-      setQuery(filteredData);
-      setLoading(false);
-      return;
-    }, 3000)
+
+    const colRef = collection(db, "foods");
+    const options = query(colRef, where("name", ">=", name), where("name", "<", name + "\uf8ff"));
+    const docsSnap = await getDocs(options);
+
+    
+    docsSnap.forEach(doc => {
+      setQuery((prev)=> [...prev, {id:doc.id, ...doc.data()} as FoodInterface]);
+    });
+
+    console.log(docsSnap.size);
+    setLoading(false);
     return;
   }
   return (
@@ -41,17 +48,17 @@ export default function FoodSearch() {
           <Input type='text' name='name' placeholder='Procurar um item...'/> <Button className='flex items-center gap-1'>Procurar <Search strokeWidth={1} size={15}/></Button>
         </form>
         {
-          loading && query.length === 0 && (
+          loading && querys.length === 0 && (
             <div className='flex flex-1 justify-center items-center'>
               <LoaderCircle strokeWidth={1} size={40} className='animate-spin text-red-600'/>
             </div>
           )
         }
         {
-          !loading && query.length > 0 && (
+          !loading && querys.length > 0 && (
             <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-6 gap-2 flex-col w-full">
               {
-                query.map((delivery) => {
+                querys.map((delivery) => {
                   return (
                     <Item {...delivery} key={delivery.id}/>
                   )}
@@ -62,7 +69,7 @@ export default function FoodSearch() {
         }
 
          {
-          !loading && query.length === 0 && (
+          !loading && querys.length === 0 && (
             <div className='flex flex-1 justify-center items-center'>
               <span>Sem dados para amostrar.</span>
             </div>
