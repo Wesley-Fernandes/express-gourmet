@@ -28,7 +28,7 @@ export function Complement({complement, setComplements}:Props) {
             </div>
             <div className='flex flex-col'>
                 <span className='font-semibold'>{complement.name}</span>
-                <span className='text-xs opacity-60'>{price}</span>
+                <span className='text-xs opacity-60'>{complement.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</span>
             </div>
         </div>
         <Switch onCheckedChange={handleToggle}/>
