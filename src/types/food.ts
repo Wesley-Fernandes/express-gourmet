@@ -16,7 +16,7 @@ export interface FoodFullInterface{
     price: number;
     description: string;
     complements?: ComplementType[];
-    delivery: DeliveryPartial
+    restaurant: DeliveryPartial
 };
 
 
