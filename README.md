@@ -13,14 +13,14 @@ O **Express Gourmet** é um aplicativo de delivery de comida, semelhante ao iFoo
 
 ## Recursos
 
-[ ] Criar uma conta
-[ ] Login
-[ ] Registrar a localição
-[ ] Pesquisa e navegação de restaurantes
-[ ] Opção de filtrar restaurantes por tipo de culinária
-[ ] Visualização detalhada de pratos com preços e descrições
-[ ] Funcionalidade de carrinho de compras
-[ ] Processo de checkout e pagamento integrado
+- [x] Criar uma conta
+- [x] Login
+- [ ] Registrar a localição
+- [ ] Pesquisa e navegação de restaurantes
+- [ ] Opção de filtrar restaurantes por tipo de culinária
+- [ ] Visualização detalhada de pratos com preços e descrições
+- [ ] Funcionalidade de carrinho de compras
+- [ ] Processo de checkout e pagamento integrado
 
 ## Tecnologias Utilizadas
 
