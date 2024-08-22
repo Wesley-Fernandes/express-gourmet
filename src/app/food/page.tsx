@@ -1,16 +1,14 @@
 "use client"
 import Item from '@/components/Item'
-import CONSTANTS from '@/constants/constants'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { LoaderCircle, Search } from 'lucide-react'
-import { FoodInterface } from '@/types/food'
+import { FoodFullInterface,} from '@/types/food'
 import { FormEvent, useState } from 'react'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '@/services/firebase'
+import { searchFoods } from '@/api/food'
 
 export default function FoodSearch() {
-  const [querys, setQuery] = useState<FoodInterface[]>([]);
+  const [querys, setQuery] = useState<FoodFullInterface[]>([]);
   const [loading, setLoading] = useState(false);
   const findData = async (e:FormEvent) => {
     setLoading(true);
@@ -28,16 +26,9 @@ export default function FoodSearch() {
       return;
     }
 
-    const colRef = collection(db, "foods");
-    const options = query(colRef, where("name", ">=", name), where("name", "<", name + "\uf8ff"));
-    const docsSnap = await getDocs(options);
-
-    
-    docsSnap.forEach(doc => {
-      setQuery((prev)=> [...prev, {id:doc.id, ...doc.data()} as FoodInterface]);
-    });
-
-    console.log(docsSnap.size);
+    const request = await searchFoods(name);
+    console.log(request);
+    setQuery(request);
     setLoading(false);
     return;
   }
