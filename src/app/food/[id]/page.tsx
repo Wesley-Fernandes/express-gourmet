@@ -32,7 +32,7 @@ export default function FoodById({params}:pageProps) {
           <div className="w-80 h-40 overflow-hidden rounded-md">
               <img src={food.thumbnail} alt="" className="w-full h-full object-cover"/>
           </div>
-          <Link href={`/delivery/${food.delivery.id}`} className="flex items-center gap-2 bg-primary-foreground my-1 p-2 hover:bg-red-100">
+          <Link href={`/deliverys/${food.delivery.id}`} className="flex items-center gap-2 my-1 p-2 hover:text-red-400">
             <div className="h-12 w-12">
                 <img src={food.delivery.icon} alt={food.delivery.name} className="w-full object-fill"/>
             </div>
