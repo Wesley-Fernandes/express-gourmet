@@ -1,14 +1,14 @@
 export const links = {
     logged: [
         { title: 'Inicio', to: '/' },
-        { title: 'Deliverys', to: '/deliverys' },
-        { title: 'Procurar', to: '/search' },
+        { title: 'Restaurantes', to: '/deliverys' },
+        { title: 'Comidas', to: '/food'},
         { title: 'Pedidos', to: '/orders' },
         { title: 'Configurações', to: '/settings' },
     ],
     notLogged: [
-        { title: 'Home', to: '/' },
-        { title: 'Deliverys', to: '/deliverys' },
-        { title: 'Procurar', to: '/search' },
+        { title: 'Incio', to: '/' },
+        { title: 'Restaurantes', to: '/deliverys' },
+        { title: 'Comidas', to: '/food'},
     ],
 }

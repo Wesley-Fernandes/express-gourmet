@@ -3,7 +3,7 @@ import { foods_constant, foods_full_constant } from "./food";
 import { user_constant } from "./user";
 import { delivery_localization_constant } from "./localization";
 
-const delivery:DeliveryInterface = {
+const delivery:DeliveryInterface[] = [{
     id: "6a579492-b6c4-4771-b931-53c10819cad4",
     name: "Lobão churrascaria",
     cellphone: "(11) 99999-9999",
@@ -12,12 +12,12 @@ const delivery:DeliveryInterface = {
     description: "O melhor churrasco de pelotas, junto da mais rápida entrega de refeições.",
     localization: delivery_localization_constant,
     foods: foods_constant
-};
+}];
 
 const deliverys:DeliverysInterface[] = [
     {
         id: "bac271a0-8fc2-4dcc-9cfe-b3e7db2b5075",
-        thumbnail: "https://minervafoods.com/wp-content/uploads/2022/12/costela_bovina-1.jpg",
+        thumbnail: "https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/06/06/338270535-costela-bovina-alho-poro-legumes.jpg",
         name: "Costelas de bovino",
         category: "Churrasco",
         price: 20.0
