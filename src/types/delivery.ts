@@ -9,7 +9,6 @@ export interface DeliveryInterface{
     icon: string;
     description: string;
     localization: LocalizationType;
-    foods: FoodInterface[];
 }
 
 export interface DeliveryPartial{
