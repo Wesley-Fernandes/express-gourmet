@@ -8,11 +8,14 @@ import { pageProps } from "@/types/page";
 import { useState } from "react";
 import CONSTANTS from "@/constants/constants";
 import Link from "next/link";
+import { ArrowLeft, Soup } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function FoodById({params}:pageProps) {
   const [quantity, setQuantity] = useState<number>(1);
   const [complements, setComplements] = useState<ComplementType[]>([]);
   const food = CONSTANTS.foods.filter((food) => food.id === params.id)[0];
+  const {back} = useRouter();
 
   if(!food) return <h1>Item não encontrado</h1>;
 
@@ -24,12 +27,19 @@ export default function FoodById({params}:pageProps) {
     return total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'});
   };
 
-  console.log(food)
+
+  const turnBack = () => {
+    back();
+  }
+
   return (
-    <main className="flex h-[calc(100vh-3.5rem)] flex-col items-center justify-center p-24">
+    <main className="flex h-[calc(100vh-3.5rem)] flex-col items-center justify-center">
+      <div className="w-[90vw] sm:w-96 flex p-0 mb-2">
+        <Button onClick={turnBack} className="-ml-2" variant="outline"><ArrowLeft strokeWidth={1}/> Voltar</Button>
+      </div>
       <div className="flex flex-col gap-2 border p-2 rounded-md shadow-md h-fit">
           <h1 className="font-black uppercase">{food.name}</h1>
-          <div className="w-80 h-40 overflow-hidden rounded-md">
+          <div className="w-[90vw] sm:w-96 h-40 overflow-hidden rounded-md">
               <img src={food.thumbnail} alt="" className="w-full h-full object-cover"/>
           </div>
           <Link href={`/deliverys/${food.delivery.id}`} className="flex items-center gap-2 my-1 p-2 hover:text-red-400">
@@ -43,18 +53,20 @@ export default function FoodById({params}:pageProps) {
             {food.description}
           </p>
           <div className="flex flex-col gap-1 p-1">
-            <h2 className="font-black uppercase border-b text-red-500">Complementos</h2>
-            {
-              food.complements?.map((complement) => {
-                return (
-                  <Complement
-                    complement={complement}
-                    key={complement.name}
-                    complements={complements}
-                    setComplements={setComplements}/>
-                )
-              })
-            }
+            <h2 className="font-black uppercase border-b text-red-500">
+              Complementos
+            </h2>
+              {
+                food.complements?.map((complement) => {
+                  return (
+                    <Complement
+                      complement={complement}
+                      key={complement.name}
+                      complements={complements}
+                      setComplements={setComplements}/>
+                  )
+                })
+              }
           </div>
           <div className="flex items-center gap-1">
             <Quantity quantity={quantity} setQuantity={setQuantity}/>
