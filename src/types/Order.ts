@@ -1,4 +1,5 @@
-import { DeliveryInterface } from "./delivery";
+import {  DeliveryOrderPartial } from "./delivery";
+import { ComplementType } from "./food";
 import { UserInterface } from "./user";
 
 export type ItemType = {
@@ -8,11 +9,17 @@ export type ItemType = {
     quantity: number;
     thumbnail: string;
     category: string;
+    complements?: ComplementType[];
 }
+
+export type CategoryTypes = "Preparando" | "Entregando" | "Cancelado"|"Solicitando";
 
 export interface OrderInterface{
     id?: string;
     items: ItemType[];
-    delivery: DeliveryInterface;
+    delivery: DeliveryOrderPartial;
     user: UserInterface;
+    status: CategoryTypes;
+    timer?: number;
 };
+

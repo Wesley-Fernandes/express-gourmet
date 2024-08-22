@@ -18,6 +18,15 @@ export interface DeliveryPartial{
     name: string;
 }
 
+
+export interface DeliveryOrderPartial{
+    id: string;
+    icon: string;
+    name: string;
+    localization: LocalizationType;
+}
+
+
 export interface DeliverysInterface{
     thumbnail: string,
     name: string,

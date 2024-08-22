@@ -2,6 +2,7 @@ import { DeliveryInterface, DeliverysInterface } from "@/types/delivery";
 import { foods_constant, foods_full_constant } from "./food";
 import { user_constant } from "./user";
 import { delivery_localization_constant } from "./localization";
+import { OrderInterface } from "@/types/Order";
 
 const delivery:DeliveryInterface[] = [{
     id: "6a579492-b6c4-4771-b931-53c10819cad4",
@@ -31,13 +32,56 @@ const deliverys:DeliverysInterface[] = [
     }
 ]
 
-
+const orders: OrderInterface[] = [
+    {
+        delivery: {
+            id: "6a579492-b6c4-4771-b931-53c10819cad4",
+            icon: "https://www.rbsdirect.com.br/imagesrc/25712397.jpg?w=700",
+            name: "Lobão churrascaria",
+            localization: {
+                cep: "12345-678",
+                houseNumber: "123",
+                street: "Rua das Flores",
+            }
+        },
+        items: [
+            {
+                category: "Churrasco",
+                id: "6ccd5e42-0a09-4025-8",
+                name: "Salchichão de porco",
+                price: 10.0,
+                quantity: 2,
+                complements: [
+                    {
+                        name: "Queijo",
+                        price: 2.5,
+                        thumbnail: "https://dcdn.mitiendanube.com/stores/001/275/310/products/loja__0003s_0001_07-queijo-gruyere1-06074065446fbf220015977838350426-640-0.jpg"
+                    }
+                ],
+                thumbnail: "https://www.juliatto.com.br/wp-content/uploads/2022/02/linguica-de-porco-tipos-de-preparos.jpg"
+            }
+        ],
+        user: {
+            icon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:",
+            name: "Wesley Fernandes",
+            id: "12345678-90ab-cdef-1234-567890abcdef",
+            localization: {
+                cep: "12345-678",
+                houseNumber: "123",
+                street: "Rua das Flores",
+            }
+        },
+        id: "36174592-1234-5678-90ab-cdef12345100",
+        status: "Solicitando"
+    }
+]
 
 const CONSTANTS = {
     foods: foods_full_constant,
     deliverys,
     delivery,
-    user: user_constant
+    user: user_constant,
+    orders: orders
 }
 
 export default CONSTANTS;
