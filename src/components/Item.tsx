@@ -15,7 +15,7 @@ export default function Item(props:DeliverysInterface) {
             <div className="flex-1 flex justify-start items-start">
                 <span className="border px-2 w-fit h-fit rounded-full text-xs bg-gray-600 text-white lowercase border-gray-700">{props.category}</span>
             </div>
-            <span className="text-md sm:text-lg text-end font-bold">{props.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</span>
+            <span className="text-md sm:text-lg text-end font-bold">{Number(props.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</span>
         </div>
     </Link>
   )
