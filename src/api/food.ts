@@ -1,6 +1,6 @@
 import { db } from "@/services/firebase";
 import { DeliveryInterface } from "@/types/delivery";
-import { FoodFullInterface, FoodInterface } from "@/types/food";
+import { FoodFullInterface } from "@/types/food";
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 
 export const getFood = async(id:string) => {
