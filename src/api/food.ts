@@ -1,9 +1,12 @@
-import { db } from "@/services/firebase";
+import { groupByCategory } from "@/lib/calculation";
+import { db } from "@/services/firebase-client";
 import { DeliveryInterface } from "@/types/delivery";
 import { FoodFullInterface } from "@/types/food";
 import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
 
+
 export const getFood = async(id:string) => {
+    console.log("Carregando comida...")
     const foodRef = doc(db, "foods", id);
     const foodSnap = await getDoc(foodRef);
     if(!foodSnap.exists()) return null;
@@ -11,11 +14,13 @@ export const getFood = async(id:string) => {
     return {id, ...foodData} as FoodFullInterface;
 }
 
-export const getFoods = async(id:string) => {
+export const getFoods = async() => {
+    console.log("Carregando comidas...")
     const foodsRef = collection(db, "foods");
-    const options = query(foodsRef, where("restaurant.id", "==", id));
-    const foodsSnap = await getDocs(options);
-    return foodsSnap.docs.map((doc) => ({id: doc.id,...doc.data()})) as FoodFullInterface[];
+    const foodsSnap = await getDocs(foodsRef);
+    const files = foodsSnap.docs.map((doc) => ({id: doc.id,...doc.data()})) as FoodFullInterface[];
+    return groupByCategory(files);
+
 }
 
 export const getRestaurant = async(id:string) => {
@@ -24,11 +29,6 @@ export const getRestaurant = async(id:string) => {
     if(!restaurantSnap.exists()) return null;
     const restaurantData = restaurantSnap.data();
     return {id,...restaurantData} as DeliveryInterface;
-}
-
-export const getRestaurantFullData = async(id:string) => {
-    const [foods, restaurant] = await Promise.all([getFoods(id), getRestaurant(id)]);
-    return {restaurant, foods} as {restaurant: DeliveryInterface, foods: FoodFullInterface[]};
 }
 
 export const searchFoods = async(search:string) => {

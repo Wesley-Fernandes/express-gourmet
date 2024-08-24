@@ -7,7 +7,7 @@ import {
     AvatarFallback,
     AvatarImage,
   } from "@/components/ui/avatar"
-import { auth } from '@/services/firebase'
+import { auth } from '@/services/firebase-client'
 
 interface Props{
   user: User;
