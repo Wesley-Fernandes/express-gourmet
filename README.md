@@ -1,6 +1,6 @@
 # Express Gourmet
 
-O **Express Gourmet** é um aplicativo de delivery de comida, semelhante ao iFood, desenvolvido para oferecer aos usuários uma maneira fácil e prática de pedir comida de seus restaurantes favoritos. Este projeto utiliza tecnologias web modernas para garantir uma experiência de usuário fluida e responsiva.
+O **Express Gourmet** é um aplicativo de gerenciamento de restaurante, inspirado no iFood, desenvolvido para oferecer aos usuários uma maneira fácil e prática de pedir comida. Este projeto utiliza tecnologias web modernas para garantir uma experiência de usuário fluida e responsiva.
 
 ## Índice
 
@@ -16,11 +16,33 @@ O **Express Gourmet** é um aplicativo de delivery de comida, semelhante ao iFoo
 - [x] Criar uma conta
 - [x] Login
 - [ ] Registrar a localição
-- [ ] Pesquisa e navegação de restaurantes
-- [ ] Opção de filtrar restaurantes por tipo de culinária
-- [ ] Visualização detalhada de pratos com preços e descrições
-- [ ] Funcionalidade de carrinho de compras
-- [ ] Processo de checkout e pagamento integrado
+- [ ] Gerenciamento do site
+   - [x] Adicionar novo prato
+   - [ ] Deletar um prato
+   - [ ] Atualizar prato
+   - [x] Gerenciar administradores
+   - [x] Deletar um usuario
+- [x] Visualização detalhada de pratos com preços e descrições
+- [x] Funcionalidade de carrinho de compras
+   - [x] Remover item do carrinho
+   - [x] Atualizar quantidade do item
+   - [x] Verificar valor total
+   - [x] Ver quantidade dos items no carrinho
+- [ ] Integração com sistema de pagamento
+   - [ ] Escolher um sistema de pagamento
+   - [ ] Configurar sistema de pagamento
+- [ ] Refatoração para padrão ATOMIC COMPONENTS
+   - [ ] Pagina de cart
+   - [ ] Pagina de food
+   - [ ] Pagina de food por id
+   - [ ] Pagina de orders
+   - [ ] Pagina de orders por id
+   - [ ] Pagina de settings
+      - [ ] Pagina de criar food
+      - [ ] Pagina de remover food
+      - [ ] Pagina de atualizar food
+      - [ ] Pagina de atualizar usuario
+      - [ ] Pagina de deletar usuario
 
 ## Tecnologias Utilizadas
 
