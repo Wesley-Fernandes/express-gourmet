@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Button } from '../ui/button'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
-import { app } from '@/services/firebase'
+import { app } from '@/services/firebase-client'
 import { toast } from 'sonner'
 
 export function Login() {

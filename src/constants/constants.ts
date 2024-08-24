@@ -4,6 +4,9 @@ import { user_constant } from "./user";
 import { delivery_localization_constant } from "./localization";
 import { OrderInterface } from "@/types/Order";
 
+export const categorys = ["Bebidas","Lanches","Pizzas","Sobremesas","Salgados","Doces","Café","Marmita","Churrasco"]
+
+
 const delivery:DeliveryInterface[] = [{
     id: "6a579492-b6c4-4771-b931-53c10819cad4",
     name: "Lobão churrascaria",
@@ -12,7 +15,6 @@ const delivery:DeliveryInterface[] = [{
     icon: "https://shrbspelotas.com.br/cache/e/1/0/a/b/e10abceb4738326f3337b7b4adf0359f7f8a6be8.png",
     description: "O melhor churrasco de pelotas, junto da mais rápida entrega de refeições.",
     localization: delivery_localization_constant,
-    foods: foods_constant
 }];
 
 const deliverys:DeliverysInterface[] = [

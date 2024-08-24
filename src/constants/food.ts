@@ -25,11 +25,6 @@ export const foods_full_constant: FoodFullInterface[] = [
     "name": "Costelas de bovino",
     "category": "Churrasco",
     "price": 20.0,
-    restaurant: {
-        id: "6a579492-b6c4-4771-b931-53c10819cad4",
-        icon: "https://shrbspelotas.com.br/cache/e/1/0/a/b/e10abceb4738326f3337b7b4adf0359f7f8a6be8.png",
-        name: "Lobão churrascaria",
-    },
     "description": "Grelhadas e com bastante tempeiro tropeiro.",
     "complements": [
         {
@@ -49,11 +44,6 @@ export const foods_full_constant: FoodFullInterface[] = [
     "thumbnail": "https://www.juliatto.com.br/wp-content/uploads/2022/02/linguica-de-porco-tipos-de-preparos.jpg",
     "name": "Salchichão de porco",
     "category": "Churrasco",
-    restaurant: {
-        id: "6a579492-b6c4-4771-b931-53c10819cad4",
-        icon: "https://shrbspelotas.com.br/cache/e/1/0/a/b/e10abceb4738326f3337b7b4adf0359f7f8a6be8.png",
-        name: "Lobão churrascaria",
-    },
     "price": 10.0,
     "description": "Salcichão de porco marinado com molho especial.",
     "complements": [

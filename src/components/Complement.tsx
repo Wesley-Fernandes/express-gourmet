@@ -9,7 +9,7 @@ interface Props{
     setComplements: Dispatch<React.SetStateAction<ComplementType[]>>;
 }
 export function Complement({complement, setComplements}:Props) {
-    const price = complement.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})
+    
 
     const  handleToggle = (checked:Boolean) => {
         switch(checked){
