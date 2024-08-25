@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import LoadingPage from "@/components/LoadingPage";
 import ErrorPage from "@/components/ErrorPage";
 import NotExist from "@/components/NotExist";
+import { Card } from "@/components/ui/card";
 
 export default function FoodById({params}:pageProps) {
   const [quantity, setQuantity] = useState<number>(1);
@@ -56,7 +57,7 @@ export default function FoodById({params}:pageProps) {
       <div className="w-[90vw] sm:w-96 flex p-0 mb-2">
         <Button onClick={turnBack} variant="outline"><ArrowLeft strokeWidth={1}/> Voltar</Button>
       </div>
-      <div className="w-[90vw] sm:w-96 flex flex-col gap-2 border p-2 rounded-md shadow-md h-fit">
+      <Card className="w-[90vw] sm:w-96 flex flex-col gap-2 border p-2 rounded-md shadow-md h-fit">
           <h1 className="font-black uppercase">{data?.name}</h1>
           <div className="w-full h-40 overflow-hidden rounded-md">
               <img src={data?.thumbnail} alt="foto do prato" className="w-full h-full object-cover"/>
@@ -89,7 +90,7 @@ export default function FoodById({params}:pageProps) {
             <h2 className="font-bold">Preço</h2>
             <p className="text-sm">{calculateTotal({data, complements, quantity})}</p>
           </div>
-      </div>
+      </Card>
     </main>
   );
 }

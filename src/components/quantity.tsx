@@ -24,7 +24,7 @@ export function Quantity({quantity, setQuantity}:Props) {
         <Button onClick={handleDecrement} size={"icon"} variant="outline">
             <Minus strokeWidth={1}/>
         </Button>
-        <Input type="number" disabled value={quantity} min={1} className='w-12 p-0 text-center'/>
+        <Input type="number" disabled value={quantity} min={1} className='w-10 pr-0 text-center'/>
         <Button onClick={handleIncrement} size={"icon"} variant="outline">
             <Plus strokeWidth={1} />
         </Button>
