@@ -4,7 +4,7 @@ import { categorys } from '@/constants/constants'
 
 export default function FoodsPage() {
   return (
-    <main className='h-[calc(100vh-3.5rem)] min-h-[calc(100vh-3.5rem)] flex flex-1'>
+    <main className='h-[calc(100vh-3.5rem)] min-h-[calc(100vh-3.5rem)] flex flex-1 overflow-y-auto'>
      <section className='p-4 flex flex-col flex-1 gap-4 container'>
       {
         categorys.map((category) =>{

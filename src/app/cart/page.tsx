@@ -19,17 +19,17 @@ export default function CartPage() {
         <div className="p-2 flex flex-col gap-4 h-[calc(100%-7rem)] overflow-y-scroll">
           {
             cart?.map((item) => (
-              <Card className="flex items-center min-h-32 gap-2 px-2 bg-primary-foreground" key={item.id}>
-                <div className="h-28 w-32 rounded-md overflow-hidden border">
+              <Card className="flex items-center min-h-32 gap-2 px-2 bg-green-900 border-green-800" key={item.id}>
+                <div className="h-28 w-32 rounded-md overflow-hidden bg-green-800">
                   <img src={item.thumbnail} alt={item.name} className="h-full w-full object-fill p-1 rounded-lg"/>
                 </div>
                 <div className="flex flex-col justify-start flex-1 h-full gap-1">
-                  <h2 className="font-black capitalize pt-1">
+                  <h2 className="font-black capitalize pt-1 text-white">
                     <Link href={`/food/${item.id}`}>
                       {item.name}
                     </Link>
                   </h2>
-                  <span className="px-1.5 py-0.5 border w-fit rounded-2xl text-xs lowercase bg-secondary border-secondary-foreground/20 ">{item.category}</span>
+                  <span className="px-1.5 py-0.5 border w-fit rounded-2xl text-xs lowercase bg-green-800 text-white border-green-700 shadow-md">{item.category}</span>
                   <div>
                     <ul>
                       {item.complements?.map((c)=>(
@@ -42,11 +42,11 @@ export default function CartPage() {
                   </div>
                   <div className="flex flex-1 justify-between items-end pb-2">
                   <div className="flex items-center w-fit gap-1">
-                    <Button size="icon" className="h-8 w-8 bg-secondary text-red-600 hover:bg-red-600 hover:text-white" onClick={()=>addQuantity(item.id)}><Plus/></Button>
-                    <Input value={item.quantity} className="h-8 w-8 p-0 text-center" disabled/>
-                    <Button size="icon" className="h-8 w-8 bg-secondary text-red-600 hover:bg-red-600 hover:text-white" onClick={()=>removeQuantity(item.id)}><Minus/></Button>
+                    <Button size="icon" className='bg-yellow-500 hover:bg-yellow-600' onClick={()=>addQuantity(item.id)}><Plus/></Button>
+                    <Input value={item.quantity} className='w-10 p-0 text-center border-green-700 text-white bg-green-900' disabled/>
+                    <Button size="icon" className='bg-yellow-500 hover:bg-yellow-600' onClick={()=>removeQuantity(item.id)}><Minus/></Button>
                   </div>
-                  <span className="font-bold text-red-500 pointer-events-none">{calculateTotal({data: (item) as any, complements: item?.complements!, quantity: item.quantity})}</span>
+                  <span className="font-bold text-white pointer-events-none">{calculateTotal({data: (item) as any, complements: item?.complements!, quantity: item.quantity})}</span>
                   </div>
                 </div>
             </Card>
