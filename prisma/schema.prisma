@@ -1,0 +1,80 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum CATEGORYS{
+  Bebidas
+  Lanches
+  Pizzas
+  Sobremesas
+  Salgados
+  Doces
+  Cafe
+  Marmita
+  Churrasco
+}
+
+enum Status{
+  Pendente
+  Preparando
+  Entregando
+  Entregue
+}
+model Order {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  creator String
+  foods    String[] @db.ObjectId
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt @default(now())
+  price Int @default(0)
+  status Status
+  location String @db.ObjectId
+}
+
+model Food {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  thumbnail String
+  name String
+  category CATEGORYS
+  price Int
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt @default(now())
+  complements FoodComplement[]
+  enabled Boolean
+}
+model Complement {
+  id        String  @id @default(auto()) @map("_id") @db.ObjectId
+  thumbnail String
+  name      String
+  price     Int
+  enabled   Boolean
+  foods     FoodComplement[] // Relacionamento muitos-para-muitos
+}
+
+model Location{
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  cep String
+  street String
+  houseNumber String
+  creator String
+}
+
+model FoodComplement {
+  id          String     @id @default(auto()) @map("_id") @db.ObjectId
+  food        Food       @relation(fields: [foodId], references: [id])
+  complement  Complement @relation(fields: [complementId], references: [id])
+  foodId      String     @db.ObjectId
+  complementId String    @db.ObjectId
+}

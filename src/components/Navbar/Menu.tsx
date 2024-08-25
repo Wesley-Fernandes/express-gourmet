@@ -15,14 +15,11 @@ export function Menu() {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline" size="icon">
-          <AlignJustify strokeWidth={1} />
+        <Button size="icon" className="bg-yellow-500 text-white hover:bg-yellow-600 hover:text-white">
+          <AlignJustify strokeWidth={2} />
         </Button>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader className="border-b pb-2 mb-2 h-14">
-          <SheetTitle>Menu</SheetTitle>
-        </SheetHeader>
+      <SheetContent className="bg-green-800 border-green-600">
           <Links />
       </SheetContent>
     </Sheet>

@@ -4,7 +4,7 @@ import { user_constant } from "./user";
 import { delivery_localization_constant } from "./localization";
 import { OrderInterface } from "@/types/Order";
 
-export const categorys = ["Bebidas","Lanches","Pizzas","Sobremesas","Salgados","Doces","Café","Marmita","Churrasco"]
+export const categorys = ["Bebidas","Lanches","Pizzas","Sobremesas","Salgados","Doces","Cafe","Marmita","Churrasco"]
 
 
 const delivery:DeliveryInterface[] = [{

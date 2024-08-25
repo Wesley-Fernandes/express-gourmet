@@ -1,13 +1,27 @@
+import { Prisma } from "@prisma/client";
 import { DeliveryPartial } from "./delivery";
 
-export type CategoryTypes = "Bebidas"|"Lanches"|"Pizzas"|"Sobremesas"|"Salgados"|"Doces"|"Café"|"Marmita"|"Churrasco";
+export type CategoryTypes = "Bebidas"|"Lanches"|"Pizzas"|"Sobremesas"|"Salgados"|"Doces"|"Cafe"|"Marmita"|"Churrasco";
 
-export type ComplementType = {
-    thumbnail: string;
-    name: string;
-    price: number;
-};
+export type FoodType = Prisma.FoodGetPayload<{
+    select: {
+        thumbnail: true;
+        name: true;
+        category: true;
+        price: true;
+        description: true;
+        complements: true;
+        enabled: true;
+    }
+}>;
 
+export type ComplementType = Prisma.ComplementGetPayload<{
+    select:{
+        name: true;
+        price: true;
+        thumbnail: true;
+    }
+}>
 export interface FoodFullInterface{
     id: string;
     thumbnail: string;
@@ -15,7 +29,7 @@ export interface FoodFullInterface{
     category: CategoryTypes;
     price: number;
     description: string;
-    complements?: ComplementType[];
+    complements: ComplementType[];
 };
 
 

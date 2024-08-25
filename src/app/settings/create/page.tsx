@@ -16,8 +16,6 @@ import { Button } from '@/components/ui/button'
 import { Trash2 } from 'lucide-react'
 import CreateNewComplement from '@/components/CreateNewComplement'
 import { toast } from 'sonner'
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '@/services/firebase-client'
 export default function CreateFoodPage() {
   const [complements, setComplements] = useState<ComplementType[]>([]);
   const [name, setName] = useState('');
@@ -36,23 +34,33 @@ export default function CreateFoodPage() {
       toast.error("Preencha todos os dados...")
       return;
     }
-    const dbRef = collection(db, "foods");
-    await addDoc(dbRef, {
-      name,
-      thumbnail,
-      price,
-      category,
-      description,
-      complements,
+
+   const request = await fetch("/api/food", {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        thumbnail,
+        name,
+        category,
+        price,
+        description,
+        enabled: true,
+      }),
     })
 
-    toast.success("Prato criado com sucesso!");
-    setName('');
-    setThumbnail('');
-    setPrice(0);
-    setDescription('');
-    setComplements([]);
-    setCategory('Bebidas');
+    const data = await request.json() as {message: string};
+
+    if(request.status === 200) {
+      toast.success(data.message);
+      setName('');
+      setThumbnail('');
+      setPrice(0);
+      setDescription('');
+      setComplements([]);
+      setCategory('Bebidas');
+      return;
+    }
+    toast.success(data.message);
     return;
 
   }

@@ -8,7 +8,7 @@ interface Props {
 export default function Jumper({to, children}:Props) {
     
   return (
-    <li className='pr-1 py-1 hover:text-red-600'>
+    <li className='pr-1 py-1 text-white hover:text-amber-500'>
         <Link href={to}>{children}</Link>
     </li>
   )

@@ -21,15 +21,15 @@ export function Logout({user}:Props) {
       setLoading(false);
   }
   return (
-    <div className='flex flex-col gap-2 border p-2 rounded-lg shadow-sm'>
+    <div className='flex flex-col gap-2 p-2'>
         <div className='flex items-center gap-2'>
-            <Avatar>
+            <Avatar className='border-2 border-amber-500'>
                 <AvatarImage src={user?.photoURL as string} alt={user?.displayName as string} />
                 <AvatarFallback>{String(user?.displayName)[0]}</AvatarFallback>
             </Avatar>
-            <span>{String(user?.displayName)}</span>
+            <span className='text-white'>{String(user?.displayName)}</span>
         </div>
-        <Button onClick={logout} disabled={loading} className='w-full' variant="destructive">Desconectar-se</Button>
+        <Button onClick={logout} disabled={loading} className='w-full bg-amber-600 hover:bg-amber-700'>Desconectar-se</Button>
     </div>
   )
 }

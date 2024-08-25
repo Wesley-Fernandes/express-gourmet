@@ -24,7 +24,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="light"
           disableTransitionOnChange>
-        <body className={inter.className}>
+        <body className={inter.className + " bg-green-800"}>
           <QueryProvider>
             <Navbar/>
             {children}

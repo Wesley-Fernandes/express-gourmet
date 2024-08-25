@@ -8,7 +8,7 @@ export default function User() {
     if (!user) return null
 
   return (
-    <Card className='py-1 border flex flex-col w-[320px] sm:w-96 p-2 rounded-xl'>
+    <Card className='py-1 border flex flex-col w-[320px] sm:w-96 p-2 rounded-xl shadow-md'>
       <div className='flex items-center gap-2'>
         <Avatar className='h-12 w-12 rounded-full overflow-hidden'>
             <AvatarImage src={user?.photoURL as string} alt={user?.displayName as string} />

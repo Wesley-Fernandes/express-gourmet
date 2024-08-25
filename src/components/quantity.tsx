@@ -21,11 +21,11 @@ export function Quantity({quantity, setQuantity}:Props) {
     }
   return (
     <div className='flex items-center w-fit gap-1 py-1'>
-        <Button onClick={handleDecrement} size={"icon"} variant="outline">
+        <Button onClick={handleDecrement} size={"icon"} className='bg-yellow-500 hover:bg-yellow-600'>
             <Minus strokeWidth={1}/>
         </Button>
-        <Input type="number" disabled value={quantity} min={1} className='w-10 pr-0 text-center'/>
-        <Button onClick={handleIncrement} size={"icon"} variant="outline">
+        <Input type="number" disabled value={quantity} min={1} className='w-10 pr-0 text-center border-green-700 text-white bg-green-900'/>
+        <Button onClick={handleIncrement} size={"icon"} className='bg-yellow-500 hover:bg-yellow-600'>
             <Plus strokeWidth={1} />
         </Button>
     </div>
