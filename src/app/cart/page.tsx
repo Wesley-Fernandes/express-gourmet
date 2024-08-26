@@ -13,8 +13,8 @@ export default function CartPage() {
   return (
     <main className="flex h-[calc(100vh-3.5rem)] min-h-[calc(100vh-3.5rem)] flex-1 flex-col">
       <section className="flex flex-col flex-1">
-        <header className="h-14 flex items-center px-4 bg-transparent border-b border-b-amber-500">
-          <h1 className="font-bold text-amber-500 uppercase">Carrinho</h1>
+        <header className="h-14 flex items-center px-4 bg-transparent border-b border-b-yellow-600 bg-gradient-to-r from-yellow-300 to-amber-500">
+          <h1 className="font-black text-lg text-white uppercase">Carrinho</h1>
         </header>
         <div className="p-2 flex flex-col gap-4 h-[calc(100%-7rem)] overflow-y-scroll">
           {

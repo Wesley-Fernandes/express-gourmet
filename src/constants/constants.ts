@@ -1,10 +1,9 @@
 import { DeliveryInterface, DeliverysInterface } from "@/types/delivery";
-import { foods_constant, foods_full_constant } from "./food";
-import { user_constant } from "./user";
 import { delivery_localization_constant } from "./localization";
 import { OrderInterface } from "@/types/Order";
+import { CategoryTypes } from "@/types/food";
 
-export const categorys = ["Bebidas","Lanches","Pizzas","Sobremesas","Salgados","Doces","Cafe","Marmita","Churrasco"]
+export const categorys:CategoryTypes[] = ["Bebidas","Lanches","Pizzas","Sobremesas","Salgados","Doces","Cafe","Marmita","Churrasco", "Produtos"]
 
 
 const delivery:DeliveryInterface[] = [{
@@ -77,13 +76,3 @@ const orders: OrderInterface[] = [
         status: "Solicitando"
     }
 ]
-
-const CONSTANTS = {
-    foods: foods_full_constant,
-    deliverys,
-    delivery,
-    user: user_constant,
-    orders: orders
-}
-
-export default CONSTANTS;

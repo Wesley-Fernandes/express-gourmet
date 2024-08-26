@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { CategoryTypes, ComplementType, FoodInterface } from "./food";
+import { CategoryTypes, ComplementType, FoodFullInterface, FoodInterface } from "./food";
 import { LocalizationType } from "./localization";
 
 export interface DeliveryInterface{
@@ -15,6 +15,7 @@ export interface DeliveryInterface{
 export type useStateNumberType = Dispatch<React.SetStateAction<number>>
 export type useStateStringType = Dispatch<React.SetStateAction<string>>
 export type useStateComplementType = Dispatch<React.SetStateAction<ComplementType[]>>
+export type useStateFoodsTypes = Dispatch<React.SetStateAction<FoodFullInterface[]>>
 
 export interface DeliveryPartial{
     id: string;

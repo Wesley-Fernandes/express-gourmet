@@ -13,7 +13,7 @@ export default function Item(props:FoodFullInterface) {
         <div className="flex flex-col justify-between pl-2  flex-1">
             <span className="font-semibold capitalize text-sm w-48 text-white">{props.name}</span>
             <div className="flex min-h-12 p-0.5 overflow-y-auto">
-                <p className='text-xs opacity-65 w-full font-light text-white/80'>{props.description}</p>
+                <p className='text-xs opacity-65 w-full font-light text-white/80 bg-green-950/40 p-1 rounded-lg'>{props.description}</p>
             </div>
             <span className="text-md sm:text-lg text-end font-bold text-white">{Number(props.price).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL'})}</span>
         </div>
