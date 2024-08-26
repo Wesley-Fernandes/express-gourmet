@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request:Request, { params }: { params: { query: CategoryTypes } }){
     try {
-        if(!params.query) return NextResponse.json({ message: "ID está faltando." }, {status: 404});
+        if(!params.query) return NextResponse.json({ message: "Query está faltando." }, {status: 404});
         const datas = await database.food.findMany({where:{
             category: params.query
         }});
