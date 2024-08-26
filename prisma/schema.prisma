@@ -23,6 +23,7 @@ enum CATEGORYS{
   Cafe
   Marmita
   Churrasco
+  Produtos
 }
 
 enum Status{
