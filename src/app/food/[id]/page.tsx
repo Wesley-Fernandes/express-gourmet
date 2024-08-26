@@ -17,6 +17,7 @@ import LoadingPage from "@/components/LoadingPage";
 import ErrorPage from "@/components/ErrorPage";
 import NotExist from "@/components/NotExist";
 import { Card } from "@/components/ui/card";
+import Image from "next/image";
 
 export default function FoodById({params}:pageProps) {
   const [quantity, setQuantity] = useState<number>(1);
@@ -60,8 +61,8 @@ export default function FoodById({params}:pageProps) {
       </div>
       <Card className="w-[90vw] border-none bg-transparent sm:w-96 flex flex-col gap-2 border p-2 rounded-md shadow-none h-fit">
           <h1 className="font-black uppercase text-white">{data?.name}</h1>
-          <div className="w-full h-40 overflow-hidden rounded-md">
-              <img src={data?.thumbnail} alt="foto do prato" className="w-full h-full object-cover"/>
+          <div className="w-full overflow-hidden rounded-md">
+              <Image src={data?.thumbnail} alt="foto do prato" width={1080} height={1080} priority className="w-full h-full object-cover"/>
           </div>
           <p className="text-xs h-20 overflow-y-scroll p-1 bg-green-900 text-white/80">
             {data?.description}
